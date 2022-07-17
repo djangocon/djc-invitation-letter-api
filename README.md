@@ -18,8 +18,14 @@ pip install -r requirements.txt
 export GOOGLE_APPLICATION_CREDENTIALS="<PATH_TO_KEY>" 
 ```
 ### Google Drive
-1. create a directory<br> 
-eg. ```DJC_2025_Letters\templates\```
+1. Create a directory<br> 
+
+```
+DJC 2025 Letters                           
+├── templates             
+      ├── Invitation(doc)                
+      └── Invitation_letter_requests(sheets)  
+```
 2. Upload your docs & sheets templates or create a template(refer to placeholders for both docs & sheets)
 3. Get the respective ids and set them as environment variable
 
@@ -31,7 +37,7 @@ eg. ```DJC_2025_Letters\templates\```
 
 :memo: **Note:** Add the service account email to the google drive folder with ```Editor``` permission. eg. ```djc@xxxx.iam.gserviceaccount.com```
 
-#### Placeholder in Google Docs
+#### Placeholder in Google Docs {{user}}
 1. fullname
 2. address
 3. letterdate
@@ -46,12 +52,16 @@ eg. ```DJC_2025_Letters\templates\```
 4. Download Link
 
 
-### Run API
+### Start the app: Run 
 ```bash
-uvicorn main:app --reload        
+uvicorn main:app --port 4000 --reload        
 ```
 
-
+### Check the APIs
+To play around with the APIs, visit the link on your browser:
+```
+http://localhost:4000/docs
+```
 
 
 **Attendee Payload**
@@ -97,3 +107,8 @@ uvicorn main:app --reload
     }
 }
 ```
+## Stacks:
+* [FastAPI](https://fastapi.tiangolo.com/)
+* [Gunicorn](https://gunicorn.org/)
+* [Pydantic](https://pydantic-docs.helpmanual.io/)
+* [Uvicorn](https://www.uvicorn.org/)
